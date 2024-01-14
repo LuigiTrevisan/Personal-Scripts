@@ -2,4 +2,5 @@
 
 ## Python Scripts:
 
+- [Duplicate Remover](./Duplicate-Remover)
 - [WWE Supercard Codebreaker Solver](./WWESupercard-Codebreaker-Solver)

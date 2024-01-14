@@ -10,7 +10,7 @@
 
 ## 🚩 Description
 
-This repository contains a collection of scripts that I developed for my personal use so I could fix some problems and learn new things.
+This repository contains a collection of scripts that I developed for my personal use so I could fix some problems and learn new things. I based this on HarshCasper's [Rotten-Scripts](https://github.com/HarshCasper/Rotten-Scripts) repository, thanks for the inspiration!
 
 ## 📜 License
 

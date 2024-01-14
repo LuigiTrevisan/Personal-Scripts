@@ -2,3 +2,4 @@
 
 ## Python Scripts:
 
+- [WWE Supercard Codebreaker Solver](./WWESupercard-Codebreaker-Solver)

@@ -18,11 +18,15 @@ def remove_duplicates(directory):
         for file in files:
             file_path = Path(os.path.join(root, file))
             file_hash = hashlib.md5(open(file_path, 'rb').read()).hexdigest()
+            print(
+                f"Storing {file_path.split('/')[-1]} value to key {file_hash}")
             hashes[file_hash].append(file_path)
 
     for hash, files in hashes.items():
+        print(f"Hash {hash} has {len(files)} files")
         if len(files) > 1:
             for file_path in files[1:]:
+                print(f"Deleting {file_path.split('/')[-1]}")
                 os.remove(file_path)
                 count += 1
 

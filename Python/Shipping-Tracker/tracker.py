@@ -8,14 +8,23 @@ import argparse
 
 load_dotenv()
 
-URL = os.environ.get("BASE_URL") + "?user=" + os.environ.get("USER") + "&token=" + os.environ.get("TOKEN") + "&codigo="
+try:
+    URL = os.environ.get("BASE_URL") + "?user=" + os.environ.get("USER") + \
+        "&token=" + os.environ.get("TOKEN") + "&codigo="
+except Exception as e:
+    print("Please create a .env file with the following variables: BASE_URL, USER, TOKEN")
+    exit(1)
 
 
 def get_tracking_info(tracking_number):
     url = URL + tracking_number
     response = requests.get(url)
     while response.status_code == 429:
-        sleeptime = int(response.text.split("Try again in ")[1].split("ms")[0])
+        try:
+            sleeptime = int(response.text.split(
+                "Try again in ")[1].split("ms")[0])
+        except:
+            sleeptime = 3000
         print(f"Too many requests, waiting {(sleeptime/1000):.1f} seconds...")
         time.sleep(sleeptime/1000)
         response = requests.get(url)
@@ -32,7 +41,8 @@ def print_tracking_info(tracking_number, tracking_info):
     print(f"Date: {recent['data']}")
     print(f"Time: {recent['hora']}")
     print(f"{'-'*20}\n")
-    
+
+
 def receive_args():
     parser = argparse.ArgumentParser(
         description='Get tracking information from a package')

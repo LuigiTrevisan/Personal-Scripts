@@ -5,6 +5,13 @@ import os
 import hashlib
 from pathlib import Path
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
+
+
+def process_file(file_path):
+    file_hash = hashlib.md5(open(file_path, 'rb').read()).hexdigest()
+    print(f"Storing {file_path} with hash {file_hash}")
+    return file_hash, file_path
 
 
 def remove_duplicates(directory):
@@ -14,12 +21,12 @@ def remove_duplicates(directory):
     count = 0
     start_time = time.time()
 
-    for root, folders, files in list_of_files:
-        for file in files:
-            file_path = Path(os.path.join(root, file))
-            file_hash = hashlib.md5(open(file_path, 'rb').read()).hexdigest()
-            print(
-                f"Storing {file_path.split('/')[-1]} value to key {file_hash}")
+    with ThreadPoolExecutor() as executor:
+        all_files = (Path(os.path.join(root, file))
+                     for root, _, files in list_of_files for file in files)
+        results = executor.map(process_file, all_files)
+
+        for file_hash, file_path in results:
             hashes[file_hash].append(file_path)
 
     for hash, files in hashes.items():

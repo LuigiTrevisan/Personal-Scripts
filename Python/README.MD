@@ -2,6 +2,7 @@
 
 ## Python Scripts:
 
+- [Calendar Automation](./Calendar-Automation)
 - [Duplicate Remover](./Duplicate-Remover)
 - [Shipping Tracker](./Shipping-Tracker)
 - [WWE Supercard Codebreaker Solver](./WWESupercard-Codebreaker-Solver)

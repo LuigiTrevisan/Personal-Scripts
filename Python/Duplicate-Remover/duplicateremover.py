@@ -33,7 +33,8 @@ def remove_duplicates(directory):
         print(f"Hash {hash} has {len(files)} files")
         if len(files) > 1:
             for file_path in files[1:]:
-                print(f"Deleting {file_path.split('/')[-1]}")
+                path = Path(file_path)
+                print(f"Deleting {path}")
                 os.remove(file_path)
                 count += 1
 

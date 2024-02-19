@@ -242,3 +242,5 @@ $RECYCLE.BIN/
 output.json
 archive/
 pytest_html_report.html
+credentials.json
+token.json

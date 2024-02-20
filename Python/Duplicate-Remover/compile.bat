@@ -1,5 +1,7 @@
-pyinstaller --noconfirm --clean --onefile --console --icon "C:/Users/trevi/Documents/DuplicateRemover/icon.ico"  "C:/Users/trevi/Documents/DuplicateRemover/duplicateremover.py"
-rmdir /s /q "C:/Users/trevi/Documents/DuplicateRemover/build"
-move "C:\Users\trevi\Documents\DuplicateRemover\dist\duplicateremover.exe" "C:\Users\trevi\Documents\DuplicateRemover"
-rmdir /s /q "C:/Users/trevi/Documents/DuplicateRemover/dist"
-del "C:\Users\trevi\Documents\DuplicateRemover\duplicateremover.spec"
+set CURRENT_DIR=%~dp0
+
+pyinstaller --noconfirm --clean --onefile --console --icon "%CURRENT_DIR%\icon.ico"  "%CURRENT_DIR%\duplicateremover.py"
+rmdir /s /q "%CURRENT_DIR%\build"
+move "%CURRENT_DIR%\dist\duplicateremover.exe" "%CURRENT_DIR%"
+rmdir /s /q "%CURRENT_DIR%\dist"
+del "%CURRENT_DIR%\duplicateremover.spec"

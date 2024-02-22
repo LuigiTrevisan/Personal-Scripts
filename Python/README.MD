@@ -2,6 +2,7 @@
 
 ## Python Scripts:
 
+- [Base Converter](./Base-Converter)
 - [Calendar Automation](./Calendar-Automation)
 - [Duplicate Remover](./Duplicate-Remover)
 - [Shipping Tracker](./Shipping-Tracker)
